@@ -2,11 +2,13 @@
 
 PROXY_URL=http://10.0.2.1:3128
 
-export http_proxy='$PROXY_URL'
-export https_proxy='$PROXY_URL'
+echo "proxy url is: $PROXY_URL"
 
-export HTTP_PROXY='$PROXY_URL'
-export HTTPS_PROXY='$PROXY_URL'
+export http_proxy="$PROXY_URL"
+export https_proxy="$PROXY_URL"
+
+export HTTP_PROXY="$PROXY_URL"
+export HTTPS_PROXY="$PROXY_URL"
 
 sudo snap set system proxy.http="$PROXY_URL"
 sudo snap set system proxy.https="$PROXY_URL"
