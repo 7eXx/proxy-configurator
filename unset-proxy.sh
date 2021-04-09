@@ -11,7 +11,7 @@ npm config delete proxy
 npm config delete https-proxy
 
 # remove proxy for docker service
-sudo cat /dev/null > /etc/systemd/system/docker.service.d/http-proxy.conf
+sudo truncate -s0 /etc/systemd/system/docker.service.d/http-proxy.conf
 
 sudo systemctl daemon-reload
 
