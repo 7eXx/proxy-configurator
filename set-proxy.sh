@@ -25,7 +25,8 @@ git config --global https.proxy $PROXY_URL
 npm config set proxy $PROXY_URL
 npm config set https-proxy $PROXY_URL
  	
-echo "[Service]
+echo "
+[Service]
 Environment=\"HTTP_PROXY=$PROXY_URL\"
 Environment=\"HTTPS_PROXY=$PROXY_URL\"
 Environment=\"NO_PROXY=localhost,127.0.0.1\"" | sudo tee /etc/systemd/system/docker.service.d/http-proxy.conf
