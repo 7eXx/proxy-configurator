@@ -15,9 +15,9 @@ sudo snap set system proxy.https="$PROXY_URL"
 
 # set proxy for apt
 echo "
-Acquire:http:Proxy \"$PROXY_URL\"
-Acquire:https:Proxy \"$PROXY_URL\"
-Acquire:ftp:Proxy \"$PROXY_URL\"" | sudo tee /etc/apt.conf.d/10proxy.conf
+Acquire:http:Proxy \"$PROXY_URL\";
+Acquire:https:Proxy \"$PROXY_URL\";
+Acquire:ftp:Proxy \"$PROXY_URL\";" | sudo tee /etc/apt/apt.conf.d/10proxy.conf
 
 git config --global http.proxy $PROXY_URL
 git config --global https.proxy $PROXY_URL
