@@ -4,12 +4,20 @@ PROXY_URL=http://10.0.2.1:3128
 
 echo "proxy url is: $PROXY_URL"
 
-export http_proxy="$PROXY_URL"
-export https_proxy="$PROXY_URL"
+# set proxy for profile shell
+echo "
+http_proxy=\"$PROXY_URL\"
+export http_proxy
+https_proxy=\"$PROXY_URL\"
+export https_proxy
 
-export HTTP_PROXY="$PROXY_URL"
-export HTTPS_PROXY="$PROXY_URL"
+HTTP_PROXY=\"$PROXY_URL\"
+export HTTP_PROXY
+HTTPS_PROXY=\"$PROXY_URL\"
+export HTTPS_PROXY
+" | sudo tee /etc/profile.d/proxy.sh
 
+# snap proxy
 sudo snap set system proxy.http="$PROXY_URL"
 sudo snap set system proxy.https="$PROXY_URL"
 

@@ -1,10 +1,9 @@
 #!/bin/sh
 
-unset HTTP_PROXY
-unset HTTPS_PROXY
-unset http_proxy
-unset https_proxy
+# remove proxy file profile
+sudo truncate -s0 /etc/profile.d/proxy.sh
 
+# unset proxy for snap
 sudo snap unset system proxy.http
 sudo snap unset system proxy.https
 
