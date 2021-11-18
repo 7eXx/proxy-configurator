@@ -1,8 +1,10 @@
 #!/bin/sh
 
 PROXY_URL=http://10.0.2.1:3128
+NO_PROXY_URL=127.0.0.1,localhost
 
 echo "proxy url is: $PROXY_URL"
+echo "no proxy url: $NO_PROXY_URL"
 
 # set proxy for profile shell
 echo "
@@ -10,11 +12,15 @@ http_proxy=\"$PROXY_URL\"
 export http_proxy
 https_proxy=\"$PROXY_URL\"
 export https_proxy
+no_proxy=\"$NO_PROXY_URL\"
+export no_proxy
 
 HTTP_PROXY=\"$PROXY_URL\"
 export HTTP_PROXY
 HTTPS_PROXY=\"$PROXY_URL\"
 export HTTPS_PROXY
+NO_PROXY=\"$NO_PROXY_URL\"
+export NO_PROXY
 " | sudo tee /etc/profile.d/proxy.sh
 
 # snap proxy
