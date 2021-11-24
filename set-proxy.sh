@@ -1,7 +1,7 @@
 #!/bin/sh
 
 PROXY_URL=http://10.0.2.1:3128
-NO_PROXY_URL=127.0.0.1,localhost
+NO_PROXY_URL=localhost,127.0.0.1,10.0.*
 
 echo "proxy url is: $PROXY_URL"
 echo "no proxy url: $NO_PROXY_URL"
@@ -43,7 +43,7 @@ echo "
 [Service]
 Environment=\"HTTP_PROXY=$PROXY_URL\"
 Environment=\"HTTPS_PROXY=$PROXY_URL\"
-Environment=\"NO_PROXY=localhost,127.0.0.1\"" | sudo tee /etc/systemd/system/docker.service.d/http-proxy.conf
+Environment=\"NO_PROXY=$NO_PROXY_URL\"" | sudo tee /etc/systemd/system/docker.service.d/http-proxy.conf
 
 sudo systemctl daemon-reload
 
