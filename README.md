@@ -17,4 +17,12 @@ Then open a terminal and execute the following command:
 To remove all proxy configuration execute:  
 > source ./unset-proxy.sh
 
-## Extra note
+## Build packaga
+To build the project in a *.deb package to be installed, use the command:
+```
+$ sudo dpkg-deb --build proxy-configurator 
+```
+Then install the package, this will create the executable in ***bin*** folder.
+```
+$ sudo dpkg -i proxy-configurato.deb
+```
