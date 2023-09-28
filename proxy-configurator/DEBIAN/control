@@ -1,5 +1,5 @@
 Package: proxy-configurator
-Version: 0.1
+Version: 0.2.0
 Maintainer: Texx
 Architecture: all
 Description: A company proxy configurato for client 
