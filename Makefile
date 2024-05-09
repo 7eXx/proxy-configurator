@@ -1,6 +1,6 @@
 .PHONY: build clean
 
-all: build
+all: clean build
 
 build:
 	mkdir -p dist/
